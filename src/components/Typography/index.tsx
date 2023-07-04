@@ -6,15 +6,15 @@ import { styles } from "./styles";
 
 const Typography: React.FC<TypographyTypes> = (props) => {
   const [loaded] = useFonts({
-    "Heebo-Thin": require("../../../assets/fonts/Heebo/static/Heebo-Thin.ttf"),
-    "Heebo-ExtraLight": require("../../../assets/fonts/Heebo/static/Heebo-ExtraLight.ttf"),
-    "Heebo-Light": require("../../../assets/fonts/Heebo/static/Heebo-Light.ttf"),
-    "Heebo-Regular": require("../../../assets/fonts/Heebo/static/Heebo-Regular.ttf"),
-    "Heebo-Medium": require("../../../assets/fonts/Heebo/static/Heebo-Medium.ttf"),
-    "Heebo-SemiBold": require("../../../assets/fonts/Heebo/static/Heebo-SemiBold.ttf"),
-    "Heebo-Bold": require("../../../assets/fonts/Heebo/static/Heebo-Bold.ttf"),
-    "Heebo-ExtraBold": require("../../../assets/fonts/Heebo/static/Heebo-ExtraBold.ttf"),
-    "Heebo-Black": require("../../../assets/fonts/Heebo/static/Heebo-Black.ttf"),
+    "Heebo-Thin": require("../../assets/fonts/Heebo/static/Heebo-Thin.ttf"),
+    "Heebo-ExtraLight": require("../../assets/fonts/Heebo/static/Heebo-ExtraLight.ttf"),
+    "Heebo-Light": require("../../assets/fonts/Heebo/static/Heebo-Light.ttf"),
+    "Heebo-Regular": require("../../assets/fonts/Heebo/static/Heebo-Regular.ttf"),
+    "Heebo-Medium": require("../../assets/fonts/Heebo/static/Heebo-Medium.ttf"),
+    "Heebo-SemiBold": require("../../assets/fonts/Heebo/static/Heebo-SemiBold.ttf"),
+    "Heebo-Bold": require("../../assets/fonts/Heebo/static/Heebo-Bold.ttf"),
+    "Heebo-ExtraBold": require("../../assets/fonts/Heebo/static/Heebo-ExtraBold.ttf"),
+    "Heebo-Black": require("../../assets/fonts/Heebo/static/Heebo-Black.ttf"),
   });
 
   const { children, style, color, fontWeight, size, uppercase, numberOfLines } =

@@ -8,18 +8,28 @@ export default StyleSheet.create({
     flexDirection: "column",
     alignItems: "center",
   },
-  mainImage:{
+  mainImage: {
     width: 200,
     height: 200,
   },
   titleContainer: {
-    marginLeft:15
+    marginHorizontal: 20,
   },
   subTitleContainer: {
-    marginBottom:10
+    marginBottom: 10,
   },
   inputContainer: {
     flexDirection: "column",
     alignItems: "center",
-  }
+  },
+  iconContainerStyleLeft: {
+    position: "absolute",
+    top: 34,
+    left: 18,
+  },
+  iconContainerStyleRight: {
+    position: "absolute",
+    top: 34,
+    right: 18,
+  },
 });
