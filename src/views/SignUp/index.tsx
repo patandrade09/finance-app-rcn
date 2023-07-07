@@ -5,6 +5,8 @@ import Typography from "../../components/Typography";
 import { Color } from "../../themes/color";
 import Input from "../../components/Input";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import Button from "../../components/Button";
+import SSOButton from "../../components/SSOButton";
 
 const SignUp = () => {
   const [name, setName] = React.useState("");
@@ -12,8 +14,8 @@ const SignUp = () => {
   const [password, setPassword] = React.useState("");
   const [confirmPassword, setConfirmPassword] = React.useState("");
   const [passwordVisible, setPasswordVisible] = React.useState(false);
-  const [confirmPasswordVisible, setconfirmPasswordVisible] = React.useState(false);
-
+  const [confirmPasswordVisible, setconfirmPasswordVisible] =
+    React.useState(false);
 
   return (
     <>
@@ -100,8 +102,59 @@ const SignUp = () => {
               iconColor={Color.slateBlue}
               iconSize={24}
               iconContainerStyle={styles.iconContainerStyleRight}
-              onIconPressed={() => setconfirmPasswordVisible(!confirmPasswordVisible)}
+              onIconPressed={() =>
+                setconfirmPasswordVisible(!confirmPasswordVisible)
+              }
             />
+            <Button
+              onPress={() => alert("ola")}
+              style={{ marginTop: 22, marginBottom: 22 }}
+            >
+              {"Cadastrar"}
+            </Button>
+            <View
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignContent: "space-around",
+                marginBottom: 22
+              }}
+            >
+              <View
+                style={{
+                  borderBottomColor: Color.frenchGray,
+                  borderBottomWidth: 1,
+                  width: 95,
+                  marginBottom: 12,
+                }}
+              ></View>
+              <Typography
+                color={Color.frenchGray}
+                style={{
+                  textAlign: "center",
+                  marginBottom: 3,
+                  marginHorizontal: 15,
+                }}
+              >
+                {" ou conecte-se com "}
+              </Typography>
+              <View
+                style={{
+                  borderBottomColor: Color.frenchGray,
+                  borderBottomWidth: 1,
+                  width: 95,
+                  marginBottom: 12,
+                }}
+              ></View>
+            </View>
+            <SSOButton
+              onPress={() =>  alert("ASDFJSLAKDFJ")}
+              style={{marginBottom: 32}}
+              imageStyle={{height: 15, width:15}}
+              source={require('../../assets/images/googleLogo.svg')}
+            >
+              {"Cadastrar com Google"}
+            </SSOButton>
           </View>
         </ScrollView>
       </SafeAreaView>
