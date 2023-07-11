@@ -7,6 +7,7 @@ import Input from "../../components/Input";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import Button from "../../components/Button";
 import SSOButton from "../../components/SSOButton";
+import GoogleLogo from "../../assets/images/googleLogo.svg";
 
 const SignUp = () => {
   const [name, setName] = React.useState("");
@@ -19,7 +20,7 @@ const SignUp = () => {
 
   return (
     <>
-      <StatusBar backgroundColor="white" />
+      <StatusBar backgroundColor="white" barStyle={'dark-content'} />
       <SafeAreaView style={styles.safeArea}>
         <ScrollView>
           <View style={styles.mainContainer}>
@@ -150,10 +151,10 @@ const SignUp = () => {
             <SSOButton
               onPress={() =>  alert("ASDFJSLAKDFJ")}
               style={{marginBottom: 32}}
-              imageStyle={{height: 15, width:15}}
-              source={require('../../assets/images/googleLogo.svg')}
+              imageStyle={{height: 36, width:36, marginLeft:35, marginRight:15, marginTop: 4}}
+              source={GoogleLogo}
             >
-              {"Cadastrar com Google"}
+              {"Cadastre-se com Google"}
             </SSOButton>
           </View>
         </ScrollView>

@@ -2,9 +2,10 @@ import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
   safeArea: {
-    marginTop: 40,
+    backgroundColor:"#FFFFFF"
   },
   mainContainer: {
+    marginTop:20,
     flexDirection: "column",
     alignItems: "center",
   },

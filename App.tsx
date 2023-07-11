@@ -1,18 +1,11 @@
-import { StatusBar } from 'expo-status-bar';
-import { Text, View } from 'react-native';
-import SignUp from './src/views/SignUp';
+import AuthRoutes from "./src/routes/auth";
 
 const App = () => {
   return (
     <>
-    <StatusBar/>
-    <View>
-      <SignUp/>
-    </View>
-
+      <AuthRoutes />
     </>
-      
-  )
-}
+  );
+};
 
-export default App
+export default App;
