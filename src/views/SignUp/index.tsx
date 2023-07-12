@@ -109,7 +109,7 @@ const SignUp = () => {
             />
             <Button
               onPress={() => alert("ola")}
-              style={{ marginTop: 22, marginBottom: 22 }}
+              style={{ marginTop: 22, marginBottom: 22, backgroundColor: Color.slateBlue, borderRadius: 12 }}
             >
               {"Cadastrar"}
             </Button>
