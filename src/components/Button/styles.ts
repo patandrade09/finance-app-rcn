@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
     width: 370
   },
   textButton: {
-    color: 'white',
+    color: Color.pureWhite,
     fontSize: 22,
     fontWeight: "700",
     textAlign:'center',

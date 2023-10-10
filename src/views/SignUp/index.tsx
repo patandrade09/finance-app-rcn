@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./styles";
 import { SafeAreaView, StatusBar, Image, View, ScrollView } from "react-native";
 import Typography from "../../components/Typography";
@@ -8,19 +8,30 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import Button from "../../components/Button";
 import SSOButton from "../../components/SSOButton";
 import GoogleLogo from "../../assets/images/googleLogo.svg";
+import { NewUser } from "../../models/NewUser";
+
+const initialFormData = {
+  name: "",
+  email: "",
+  password: "",
+  confirmPassword: "",
+};
 
 const SignUp = () => {
-  const [name, setName] = React.useState("");
-  const [email, setEmail] = React.useState("");
-  const [password, setPassword] = React.useState("");
-  const [confirmPassword, setConfirmPassword] = React.useState("");
-  const [passwordVisible, setPasswordVisible] = React.useState(false);
-  const [confirmPasswordVisible, setconfirmPasswordVisible] =
-    React.useState(false);
+  const [formData, setFormData] = useState<NewUser>(initialFormData);
+  const [passwordVisible, setPasswordVisible] = useState(false);
+  const [confirmPasswordVisible, setconfirmPasswordVisible] = useState(false);
+
+  const handleInputChange = (name: string, value: string) => {
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
 
   return (
     <>
-      <StatusBar backgroundColor="white" barStyle={'dark-content'} />
+      <StatusBar backgroundColor="white" barStyle={"dark-content"} />
       <SafeAreaView style={styles.safeArea}>
         <ScrollView>
           <View style={styles.mainContainer}>
@@ -32,7 +43,7 @@ const SignUp = () => {
               <Typography
                 style={styles.subTitleContainer}
                 size="xl"
-                fontWeight="500"
+                fontWeight="700"
                 color={Color.slateBlue}
               >
                 {"Começe agora a controlar suas finanças"}
@@ -46,8 +57,8 @@ const SignUp = () => {
             <Input
               placeholder={"Insira seu nome completo"}
               placeholderTextColor={Color.coolGray}
-              value={name}
-              onChangeText={setName}
+              value={formData.name}
+              onChangeText={(text) => handleInputChange("name", text)}
               iconName={"person"}
               iconColor={Color.slateBlue}
               iconSize={24}
@@ -58,12 +69,12 @@ const SignUp = () => {
             <Input
               placeholder={"Insira seu e-mail"}
               placeholderTextColor={Color.coolGray}
-              value={email}
+              value={formData.email}
+              onChangeText={(text) => handleInputChange("email", text)}
               iconName={"mail"}
               iconColor={Color.slateBlue}
               iconSize={24}
               iconContainerStyle={styles.iconContainerStyleLeft}
-              onChangeText={setEmail}
             />
           </View>
           <View style={styles.inputContainer}>
@@ -71,13 +82,13 @@ const SignUp = () => {
               name={"lock-closed"}
               size={24}
               color={Color.slateBlue}
-              style={{ position: "absolute", top: 34, left: 38 }}
+              style={styles.inputIconStyle}
             />
             <Input
               placeholder={"Crie uma senha"}
               placeholderTextColor={Color.coolGray}
-              value={password}
-              onChangeText={setPassword}
+              value={formData.password}
+              onChangeText={(text) => handleInputChange("password", text)}
               secureTextEntry={!passwordVisible}
               iconName={passwordVisible ? "eye-off" : "eye"}
               iconColor={Color.slateBlue}
@@ -91,13 +102,13 @@ const SignUp = () => {
               name={"lock-closed"}
               size={24}
               color={Color.slateBlue}
-              style={{ position: "absolute", top: 34, left: 38 }}
+              style={styles.inputIconStyle}
             />
             <Input
               placeholder={"Confirme a senha"}
               placeholderTextColor={Color.coolGray}
-              value={confirmPassword}
-              onChangeText={setConfirmPassword}
+              value={formData.confirmPassword}
+              onChangeText={(text) => handleInputChange("confirmPassword", text)}
               secureTextEntry={!confirmPasswordVisible}
               iconName={confirmPasswordVisible ? "eye-off" : "eye"}
               iconColor={Color.slateBlue}
@@ -107,10 +118,7 @@ const SignUp = () => {
                 setconfirmPasswordVisible(!confirmPasswordVisible)
               }
             />
-            <Button
-              onPress={() => alert("ola")}
-              style={{ marginTop: 22, marginBottom: 22, backgroundColor: Color.slateBlue, borderRadius: 12 }}
-            >
+            <Button onPress={() => alert("ola")} style={styles.darkButtonStyle}>
               {"Cadastrar"}
             </Button>
             <View
@@ -118,40 +126,19 @@ const SignUp = () => {
                 display: "flex",
                 flexDirection: "row",
                 alignContent: "space-around",
-                marginBottom: 22
+                marginBottom: 22,
               }}
             >
-              <View
-                style={{
-                  borderBottomColor: Color.frenchGray,
-                  borderBottomWidth: 1,
-                  width: 95,
-                  marginBottom: 12,
-                }}
-              ></View>
-              <Typography
-                color={Color.frenchGray}
-                style={{
-                  textAlign: "center",
-                  marginBottom: 3,
-                  marginHorizontal: 15,
-                }}
-              >
+              <View style={styles.ssoContainer}></View>
+              <Typography color={Color.frenchGray} style={styles.ssoSmallText}>
                 {" ou conecte-se com "}
               </Typography>
-              <View
-                style={{
-                  borderBottomColor: Color.frenchGray,
-                  borderBottomWidth: 1,
-                  width: 95,
-                  marginBottom: 12,
-                }}
-              ></View>
+              <View style={styles.ssoSmallLine}></View>
             </View>
             <SSOButton
-              onPress={() =>  alert("ASDFJSLAKDFJ")}
-              style={{marginBottom: 32}}
-              imageStyle={{height: 36, width:36, marginLeft:35, marginRight:15, marginTop: 4}}
+              onPress={() => alert("ASDFJSLAKDFJ")}
+              style={{ marginBottom: 32 }}
+              imageStyle={styles.ssoButtonImageStyle}
               source={GoogleLogo}
             >
               {"Cadastre-se com Google"}

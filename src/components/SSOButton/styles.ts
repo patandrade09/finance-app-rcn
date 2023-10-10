@@ -5,7 +5,6 @@ export const styles = StyleSheet.create({
   button: {
     display:'flex',
     flexDirection:'row',
-    //alignItems:'stretch',
     borderRadius: 12,
     borderColor: Color.slateBlue,
     borderWidth: 1,
